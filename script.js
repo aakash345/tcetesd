@@ -1,12 +1,15 @@
 //const api_url = "<heroku_app_url>"
-const api_url = "https://aakash2022.herokuapp.com/user"
+const api_url = "https://aakash2022.herokuapp.com/movie"
 function loadData(records = []) {
 var table_data = "";
 for(let i=0; i<records.length; i++) {
 table_data += `<tr>`;
 table_data += `<td>${records[i].name}</td>`;
-table_data += `<td>${records[i].age}</td>`;
-table_data += `<td>${records[i].city}</td>`;
+table_data += `<td>${records[i].release}</td>`;
+table_data += `<td>${records[i].lead_actor}</td>`;
+table_data += `<td>${records[i].lead_actress}</td>`;
+table_data += `<td>${records[i].director}</td>`;
+table_data += `<td>${records[i].box_office}</td>`;
 table_data += `<td>`;
 table_data += `<a href="edit.html?id=${records[i]._id}"><button class="btn btn-primary">Edit</button></a>`;
 table_data += '&nbsp;&nbsp;';
@@ -32,15 +35,21 @@ fetch(`${api_url}/${id}`)
 console.log(data);
 document.getElementById("id").value = data._id;
 document.getElementById("name").value = data.name;
-document.getElementById("age").value = data.age;
-document.getElementById("city").value = data.city;
+document.getElementById("release").value = data.release;
+document.getElementById("lead_actor").value = data.lead_actor;
+document.getElementById("lead_actress").value = data.lead_actress;
+document.getElementById("director").value = data.director;
+document.getElementById("box_office").value = data.box_office;
 })
 }
 function postData() {
 var name = document.getElementById("name").value;
-var age = document.getElementById("age").value;
-var city = document.getElementById("city").value;
-data = {name: name, age: age, city: city};
+var release = document.getElementById("release").value;
+var lead_actor = document.getElementById("lead_actor").value;
+var lead_actress = document.getElementById("lead_actress").value;
+var director = document.getElementById("director").value;
+var box_office = document.getElementById("box_office").value;
+data = {name: name, release: release, lead_actor: lead_actor, lead_actress:lead_actress, director:director, box_office:box_office};
 fetch(api_url, {
 method: "POST",
 headers: {
@@ -58,9 +67,12 @@ window.location.href = "index.html";
 function putData() {
 var _id = document.getElementById("id").value;
 var name = document.getElementById("name").value;
-var age = document.getElementById("age").value;
-var city = document.getElementById("city").value;
-data = {_id: _id, name: name, age: age, city: city};
+var release = document.getElementById("release").value;
+var lead_actor = document.getElementById("lead_actor").value;
+var lead_actress = document.getElementById("lead_actress").value;
+var director = document.getElementById("director").value;
+var box_office = document.getElementById("box_office").value;
+data = {_id: _id, name: name,  release: release, lead_actor: lead_actor, lead_actress:lead_actress, director:director, box_office:box_office};
 fetch(api_url, {
 method: "PUT",
 headers: {

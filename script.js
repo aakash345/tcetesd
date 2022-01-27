@@ -7,7 +7,6 @@ table_data += `<tr>`;
 table_data += `<td>${records[i].name}</td>`;
 table_data += `<td>${records[i].release}</td>`;
 table_data += `<td>${records[i].lead_actor}</td>`;
-table_data += `<td>${records[i].lead_actress}</td>`;
 table_data += `<td>${records[i].director}</td>`;
 table_data += `<td>${records[i].box_office}</td>`;
 table_data += `<td>`;
@@ -37,7 +36,6 @@ document.getElementById("id").value = data._id;
 document.getElementById("name").value = data.name;
 document.getElementById("release").value = data.release;
 document.getElementById("lead_actor").value = data.lead_actor;
-document.getElementById("lead_actress").value = data.lead_actress;
 document.getElementById("director").value = data.director;
 document.getElementById("box_office").value = data.box_office;
 })
@@ -46,10 +44,9 @@ function postData() {
 var name = document.getElementById("name").value;
 var release = document.getElementById("release").value;
 var lead_actor = document.getElementById("lead_actor").value;
-var lead_actress = document.getElementById("lead_actress").value;
 var director = document.getElementById("director").value;
 var box_office = document.getElementById("box_office").value;
-data = {name: name, release: release, lead_actor: lead_actor, lead_actress:lead_actress, director:director, box_office:box_office};
+data = {name: name, release: release, lead_actor: lead_actor, director:director, box_office:box_office};
 fetch(api_url, {
 method: "POST",
 headers: {
@@ -69,10 +66,9 @@ var _id = document.getElementById("id").value;
 var name = document.getElementById("name").value;
 var release = document.getElementById("release").value;
 var lead_actor = document.getElementById("lead_actor").value;
-var lead_actress = document.getElementById("lead_actress").value;
 var director = document.getElementById("director").value;
 var box_office = document.getElementById("box_office").value;
-data = {_id: _id, name: name,  release: release, lead_actor: lead_actor, lead_actress:lead_actress, director:director, box_office:box_office};
+data = {_id: _id, name: name,  release: release, lead_actor: lead_actor, director:director, box_office:box_office};
 fetch(api_url, {
 method: "PUT",
 headers: {
